@@ -3,8 +3,8 @@ LUHNY.DART by Alexander Abraham, a.k.a. "Angel Dollface".
 Licensed under the MIT license.
 */
 
-// Checks whether the supplied character is
-// an integer. Returns a boolean depending on this. 
+/// Checks whether the supplied character is
+/// an integer. Returns a boolean depending on this. 
 bool isInt(String subject) {
     bool result = true;
     try {
@@ -16,9 +16,9 @@ bool isInt(String subject) {
     return result;
 }
 
-// Checks whether the supplied IMEI string
-// only contains integers.
-// Returns a boolean depending on this. 
+/// Checks whether the supplied IMEI string
+/// only contains integers.
+/// Returns a boolean depending on this. 
 bool isNumberSequence(String imei){
     bool result = true;
     List<String> charList = imei.split('');
@@ -33,7 +33,7 @@ bool isNumberSequence(String imei){
     return result;
 }
 
-// Gets every second number starting from the left.
+/// Gets every second number starting from the left.
 List<String> getImportantNumbers(String imei){
     List<String> result = [];
     List<String> charList = imei.split('');
@@ -49,9 +49,9 @@ List<String> getImportantNumbers(String imei){
     return result;
 }
 
-// Gets all the numbers that remain.
-// Removes the check digit because this is not allowed when
-// adding all the remaining numbers together.
+/// Gets all the numbers that remain.
+/// Removes the check digit because this is not allowed when
+/// adding all the remaining numbers together.
 List<String> getTrashNumbers(String imei){
     List<String> result =[];
     List<String> charList = imei.split('');
@@ -70,8 +70,8 @@ List<String> getTrashNumbers(String imei){
     return result;
 }
 
-// Converts all the "important" numbers, doubles them, and returns them
-// in an array.
+/// Converts all the "important" numbers, doubles them, and returns them
+/// in an array.
 List<int> doubleImportantNumbers(String imei){
     List<String> impNums = getImportantNumbers(imei);
     List<int> result = [];
@@ -81,7 +81,7 @@ List<int> doubleImportantNumbers(String imei){
     return result;
 }
 
-// Adds all the remaining numbers in a lump sum.
+/// Adds all the remaining numbers in a lump sum.
 int addTrashNumbers(String imei){
     List<String> impNums = getTrashNumbers(imei);
     int result = 0;
@@ -91,8 +91,8 @@ int addTrashNumbers(String imei){
     return result;
 }
 
-// Because this is neccessary and we can't play fast and loose with types
-// we need to convert between the arrays' types. 
+/// Because this is neccessary and we can't play fast and loose with types
+/// we need to convert between the arrays' types. 
 List<String> convertNumberArrayToStringArray(List<int> arr){
     List<String> result =[];
     for (var i = 0; i < arr.length; i++){
@@ -105,8 +105,8 @@ List<String> convertNumberArrayToStringArray(List<int> arr){
     return result;
 }
 
-// Splits all the characters in the "important" numbers and adds them all
-// together in a lump sum.
+/// Splits all the characters in the "important" numbers and adds them all
+/// together in a lump sum.
 int addImportantDoubleDigits(String imei){
     int result = 0;
     List<int> doubles = doubleImportantNumbers(imei);
@@ -117,17 +117,17 @@ int addImportantDoubleDigits(String imei){
     return result;
 }
 
-// Gets the last item of a string array and returns it.
+/// Gets the last item of a string array and returns it.
 String getLastItem(List<String> arr) {
     int arrayLength = arr.length;
     int lastItemIndex = arrayLength -1;
     return arr[lastItemIndex];
 }
 
-// Gets the check digit of your IMEI, adds the "important" and the
-// "other" numbers together, subtracts the "mod 10" from 10 of that sum, makes
-// a type conversion, compares the check digit and the calculated check digit,
-// and returns true or false depending on whether they are equal or not.
+/// Gets the check digit of your IMEI, adds the "important" and the
+/// "other" numbers together, subtracts the "mod 10" from 10 of that sum, makes
+/// a type conversion, compares the check digit and the calculated check digit,
+/// and returns true or false depending on whether they are equal or not.
 bool validateIMEI(String imei){
     bool result = false;
     if (isNumberSequence(imei)) {

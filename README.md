@@ -24,7 +24,7 @@ To add Harpo to your project's dependencies, add this to your project's `pubspec
 ```YAML
 dependencies:
   ...
-  harpo:
+  luhny:
     git: git://github.com/angeldollface/luhny.dart.git
 ```
 
@@ -42,7 +42,7 @@ $ dart pub get
 Import all functions like this:
 
 ```dart
-import 'package:harpo/luhny.dart';
+import 'package:luhny/luhny.dart';
 ```
 
 ### APIs
